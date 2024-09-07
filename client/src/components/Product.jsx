@@ -33,7 +33,7 @@ const Container = styled.div`
   background-color: #f5fbfd;
   position: relative;
 
-  &:hover ${Info}{
+  &:hover ${Info} {
     opacity: 1;
   }
 `;
@@ -77,8 +77,8 @@ const Product = ({ item }) => {
           <ShoppingCartOutlined />
         </Icon>
         <Icon>
-          <Link to={`/product/${item._id}`}>
-          <SearchOutlined />
+          <Link to={`/product/${item.id}`}>
+            <SearchOutlined />
           </Link>
         </Icon>
         <Icon>
