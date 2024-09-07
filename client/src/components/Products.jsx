@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Product from "./Product";
 import { popularProducts } from "../data"; // Importing popularProducts
+import axios from "axios";
 
 const Container = styled.div`
   padding: 20px;
@@ -11,21 +12,34 @@ const Container = styled.div`
 `;
 
 const Products = ({ cat, filters, sort }) => {
+  const [Products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(popularProducts);
-
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          cat
+            ? `http://localhost:5000/api/products?qcategory=${cat}`
+            : "http://localhost:5000/api/products"
+        );
+        setProducts(res.data);
+      } catch (err) {}
+    };
+    getProducts();
+  }, [cat]);
   useEffect(() => {
     if (cat) {
       setFilteredProducts(
-        popularProducts.filter((item) =>
+        Products.filter((item) =>
           Object.entries(filters).every(([key, value]) =>
             item[key]?.includes(value)
           )
         )
       );
     } else {
-      setFilteredProducts(popularProducts);
+      setFilteredProducts(Products);
     }
-  }, [cat, filters]);
+  }, [cat, filters, Products]);
 
   useEffect(() => {
     if (sort === "newest") {
