@@ -249,11 +249,7 @@ const dispatch = useDispatch()
               amount={cart.total * 100}
               token={onToken}
               stripeKey={KEY}
-              style = {
-                {
-                  background : "aqua"
-                }
-              }
+              
             >
               <Button>CHECKOUT NOW</Button>
             </StripeCheckout>
