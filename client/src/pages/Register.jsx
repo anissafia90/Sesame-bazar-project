@@ -13,7 +13,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5)
     ),
     url("https://images.pexels.com/photos/6214371/pexels-photo-6214371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
