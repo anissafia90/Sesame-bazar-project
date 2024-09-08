@@ -1,5 +1,5 @@
 import { Add, Remove } from "@material-ui/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -8,6 +8,7 @@ import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
+import { clearCart } from "../redux/cartRedux"; 
 
 const KEY = process.env.REACT_APP_STRIPE;
 
@@ -162,7 +163,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
-
+const dispatch = useDispatch()
   const onToken = (token) => {
     setStripeToken(token);
   };
@@ -178,6 +179,7 @@ const Cart = () => {
           stripeData: res.data,
           products: cart,
         });
+        dispatch(clearCart()); 
       } catch {}
     };
     stripeToken && makeRequest();
@@ -247,7 +249,7 @@ const Cart = () => {
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <StripeCheckout
-              name="Lama Shop"
+              name="Sesame-Bazar"
               image="https://avatars.githubusercontent.com/u/1486366?v=4"
               billingAddress
               shippingAddress

@@ -64,6 +64,7 @@ export default function NewProduct() {
           const product = { ...inputs, img: downloadURL, categories: cat };
           console.log(product);
           addProduct(product, dispatch);
+          alert("product create");
         });
       }
     );
