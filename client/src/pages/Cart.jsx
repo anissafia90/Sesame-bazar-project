@@ -189,14 +189,6 @@ const dispatch = useDispatch()
       <Navbar />
       <Wrapper>
         <Title>YOUR BAG</Title>
-        <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
-          <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
-          </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
-        </Top>
         <Bottom>
           <Info>
             {cart.products.map((product) => (
@@ -250,13 +242,18 @@ const dispatch = useDispatch()
             </SummaryItem>
             <StripeCheckout
               name="Sesame-Bazar"
-              image="https://avatars.githubusercontent.com/u/1486366?v=4"
+              image="https://cdn2.vectorstock.com/i/1000x1000/92/41/avatar-money-bill-coin-vector-10819241.jpg"
               billingAddress
               shippingAddress
               description={`Your total is $${cart.total}`}
               amount={cart.total * 100}
               token={onToken}
               stripeKey={KEY}
+              style = {
+                {
+                  background : "aqua"
+                }
+              }
             >
               <Button>CHECKOUT NOW</Button>
             </StripeCheckout>
