@@ -11,9 +11,9 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-      center;
-  background-size: cover;
+    url("https://images.pexels.com/photos/6214390/pexels-photo-6214390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: auto;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
