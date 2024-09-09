@@ -15,7 +15,10 @@ export default function ProductList() {
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    deleteProduct(id, dispatch);
+    deleteProduct(id, dispatch).catch((err) => {
+      // Handle the error, e.g., show a notification
+      console.error("Delete failed:", err);
+    });
   };
 
   const columns = [
