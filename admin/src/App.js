@@ -10,12 +10,11 @@ import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
+import { useSelector } from "react-redux";
 
 function App() {
-  const admin = JSON.parse(
-    JSON.parse(localStorage.getItem("persist:root")).user
-  ).currentUser.isAdmin;
-    return (
+  const admin = useSelector((state) => state.user.currentUser.isAdmin);
+  return (
     <Router>
       <Switch>
         <Route path="/login">
